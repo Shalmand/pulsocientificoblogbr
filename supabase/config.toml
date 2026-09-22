@@ -1,0 +1,46 @@
+# O Lovable acrescenta aqui a linha project_id do projeto quando o Cloud é ligado. Mantenha as seções abaixo.
+#
+# verify_jwt = false nas funções que não são chamadas por quem está logado no site:
+#   sitemap, llms, feed, og → abertas ao público (Google, leitores de RSS, robôs de IA e prévias de link)
+#   publicar-materia,
+#   gerar-capa,
+#   coletar-pauta           → chamadas pela rotina diária do Claude, protegidas pela chave AGENTE_CHAVE
+#   admin-api               → chamada pelo terminal, protegida pela chave PULSO_ADMIN_KEY
+#   verificar-capas         → agendada (cron), protegida pela chave AGENTE_CHAVE
+# As outras (fotos-capa, buscar-estudo, verificar-crm) exigem o login de quem está no painel.
+
+[functions.sitemap]
+verify_jwt = false
+
+[functions.llms]
+verify_jwt = false
+
+[functions.feed]
+verify_jwt = false
+
+[functions.og]
+verify_jwt = false
+
+[functions.publicar-materia]
+verify_jwt = false
+
+[functions.gerar-capa]
+verify_jwt = false
+
+[functions.coletar-pauta]
+verify_jwt = false
+
+[functions.admin-api]
+verify_jwt = false
+
+[functions.verificar-capas]
+verify_jwt = false
+
+[functions.fotos-capa]
+verify_jwt = true
+
+[functions.buscar-estudo]
+verify_jwt = true
+
+[functions.verificar-crm]
+verify_jwt = true

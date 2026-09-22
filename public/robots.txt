@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /painel
+Disallow: /conta
+Disallow: /completar
+Disallow: /entrar
+
+# O sitemap é gerado pela função "sitemap" do Lovable Cloud, sempre com as matérias do dia.
+# Troque SEU_PROJETO pelo código do projeto (o mesmo que aparece em supabase/config.toml).
+Sitemap: https://SEU_PROJETO.supabase.co/functions/v1/sitemap

@@ -1,0 +1,224 @@
+{
+  "_leia": "Fontes que o agente varre todo dia, por área. Só API pública e gratuita. Ver FONTES.md.",
+  "_testado_em": "2026-09-18",
+  "fontes": [
+    {
+      "id": "pubmed-jama",
+      "nome": "JAMA e JAMA Network Open (via PubMed)",
+      "api": "pubmed",
+      "tipo": "estudo",
+      "editoria": "saude",
+      "ativa": true,
+      "consulta": "(\"JAMA\"[Journal] OR \"JAMA Netw Open\"[Journal]) AND (randomized controlled trial[pt] OR meta-analysis[pt])",
+      "dias": 3,
+      "maximo": 25,
+      "observacao": "Única fonte de Saúde. Revisão por pares obrigatória; preprint não entra em saúde."
+    },
+    {
+      "id": "arxiv-ia",
+      "nome": "arXiv — inteligência artificial",
+      "api": "arxiv",
+      "tipo": "preprint",
+      "editoria": "inteligencia-artificial",
+      "ativa": true,
+      "consulta": "cat:cs.AI OR cat:cs.LG OR cat:cs.CL OR cat:cs.CV",
+      "dias": 3,
+      "maximo": 30,
+      "observacao": "Resumo completo e do mesmo dia. Preprint: a matéria precisa dizer que ainda não passou por revisão por pares."
+    },
+    {
+      "id": "arxiv-tecnologia",
+      "nome": "arXiv — computação, segurança e robótica",
+      "api": "arxiv",
+      "tipo": "preprint",
+      "editoria": "tecnologia",
+      "ativa": true,
+      "consulta": "cat:cs.CR OR cat:cs.RO OR cat:cs.DC OR cat:eess.SY",
+      "dias": 3,
+      "maximo": 25
+    },
+    {
+      "id": "arxiv-espaco",
+      "nome": "arXiv — astronomia e astrofísica",
+      "api": "arxiv",
+      "tipo": "preprint",
+      "editoria": "espaco",
+      "ativa": true,
+      "consulta": "cat:astro-ph.EP OR cat:astro-ph.GA OR cat:astro-ph.SR",
+      "dias": 4,
+      "maximo": 20
+    },
+    {
+      "id": "nasa-noticias",
+      "nome": "NASA — comunicados oficiais",
+      "api": "rss",
+      "tipo": "comunicado",
+      "editoria": "espaco",
+      "ativa": true,
+      "consulta": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+      "dias": 5,
+      "maximo": 20,
+      "observacao": "Texto e imagens da NASA são de domínio público nos EUA (menos o logo e pessoas identificáveis). Capa pode sair de images-api.nasa.gov."
+    },
+    {
+      "id": "openalex-china-ia",
+      "nome": "Pesquisa de IA feita na China (via OpenAlex)",
+      "api": "openalex",
+      "tipo": "estudo",
+      "editoria": "inteligencia-artificial",
+      "ativa": true,
+      "filtro": "institutions.country_code:cn,primary_topic.subfield.id:subfields/1702",
+      "dias": 6,
+      "maximo": 25,
+      "observacao": "Único caminho com filtro real por país: pega trabalhos com instituição chinesa. Testado em 18/09/2026: 184 artigos com resumo em 6 dias."
+    },
+    {
+      "id": "openalex-china-tecnologia",
+      "nome": "Tecnologia e computação da China (via OpenAlex)",
+      "api": "openalex",
+      "tipo": "estudo",
+      "editoria": "tecnologia",
+      "ativa": true,
+      "filtro": "institutions.country_code:cn,primary_topic.subfield.id:subfields/1708|subfields/1705|subfields/1710",
+      "dias": 6,
+      "maximo": 25,
+      "observacao": "Hardware, redes e sistemas de informação. Volume menor que IA, mas mais específico."
+    },
+    {
+      "id": "arxiv-china-ia",
+      "nome": "arXiv — modelos e laboratórios chineses de IA",
+      "api": "arxiv",
+      "tipo": "preprint",
+      "editoria": "inteligencia-artificial",
+      "ativa": true,
+      "consulta": "(cat:cs.AI OR cat:cs.LG OR cat:cs.CL OR cat:cs.CV) AND (all:DeepSeek OR all:Qwen OR all:InternLM OR all:Hunyuan OR all:Kimi OR all:GLM OR all:Baichuan OR all:MiniMax)",
+      "dias": 4,
+      "maximo": 25,
+      "observacao": "O arXiv não indexa a instituição, então a busca é pelo nome dos modelos chineses (DeepSeek, Qwen, Kimi...). Testado: 25 de 25 resultados recentes."
+    },
+    {
+      "id": "crossref-china-nsr",
+      "nome": "National Science Review (Academia Chinesa de Ciências)",
+      "api": "crossref",
+      "tipo": "estudo",
+      "editoria": "tecnologia",
+      "ativa": true,
+      "issn": [
+        "2053-714X"
+      ],
+      "dias": 20,
+      "maximo": 15,
+      "observacao": "Revista da Academia Chinesa de Ciências, com resumo no Crossref (5 de 5 no teste). Publica pouco por semana, por isso a janela é maior."
+    },
+    {
+      "id": "europepmc-china-ia-saude",
+      "nome": "IA aplicada à medicina, feita na China (via Europe PMC)",
+      "api": "europepmc",
+      "tipo": "estudo",
+      "editoria": "inteligencia-artificial",
+      "ativa": false,
+      "consulta": "AFF:\"China\" AND (TITLE:\"artificial intelligence\" OR TITLE:\"machine learning\" OR TITLE:\"deep learning\") AND OPEN_ACCESS:Y",
+      "dias": 10,
+      "maximo": 20,
+      "observacao": "Funciona (7 de 10 com resumo), mas é IA dentro da medicina: entra na régua de saúde. Ligar só quando houver revisor."
+    },
+    {
+      "id": "europepmc-nature-oa",
+      "nome": "Nature Communications, Scientific Reports e irmãs (via Europe PMC)",
+      "api": "europepmc",
+      "tipo": "estudo",
+      "editoria": "natureza",
+      "ativa": true,
+      "consulta": "(JOURNAL:\"Nature Communications\" OR JOURNAL:\"Scientific Reports\" OR JOURNAL:\"Communications Biology\") AND OPEN_ACCESS:Y",
+      "dias": 4,
+      "maximo": 30,
+      "observacao": "Revistas abertas do grupo Nature: resumo completo e gratuito. A Nature e a Science principais não entregam resumo em API nenhuma (ver FONTES.md)."
+    },
+    {
+      "id": "europepmc-biodiversidade",
+      "nome": "Europe PMC — biodiversidade e ecologia",
+      "api": "europepmc",
+      "tipo": "estudo",
+      "editoria": "natureza",
+      "ativa": true,
+      "consulta": "(biodiversity OR \"species discovery\" OR ecology OR conservation) AND OPEN_ACCESS:Y",
+      "dias": 5,
+      "maximo": 25
+    },
+    {
+      "id": "crossref-clima",
+      "nome": "Clima e meio ambiente (via Crossref)",
+      "api": "crossref",
+      "tipo": "estudo",
+      "editoria": "clima-e-meio-ambiente",
+      "ativa": true,
+      "issn": [
+        "1748-9326",
+        "2662-4435",
+        "2662-138X"
+      ],
+      "dias": 5,
+      "maximo": 25,
+      "observacao": "Environmental Research Letters, Communications Earth & Environment e Nature Reviews Earth & Environment. Revistas abertas depositam o resumo no Crossref."
+    },
+    {
+      "id": "europepmc-saude-publica",
+      "nome": "Europe PMC — saúde pública aberta",
+      "api": "europepmc",
+      "tipo": "estudo",
+      "editoria": "saude",
+      "ativa": false,
+      "consulta": "(JOURNAL:\"The Lancet Public Health\" OR JOURNAL:\"BMJ\") AND OPEN_ACCESS:Y",
+      "dias": 4,
+      "maximo": 20,
+      "observacao": "Desligada: em Saúde ficamos só no JAMA por enquanto. Ligar quando houver revisor."
+    },
+    {
+      "id": "crossref-nature-radar",
+      "nome": "Nature e Science (radar, via Crossref)",
+      "api": "crossref",
+      "tipo": "estudo",
+      "editoria": "natureza",
+      "ativa": false,
+      "issn": [
+        "1476-4687",
+        "1095-9203"
+      ],
+      "dias": 4,
+      "maximo": 20,
+      "observacao": "Testado em 18/09/2026: o Crossref devolve título e DOI, mas nenhuma dessas revistas deposita o resumo. Serve para saber o que saiu, não para escrever. Só ligar se um dia formos escrever a partir do comunicado da instituição."
+    },
+    {
+      "id": "esa-noticias",
+      "nome": "ESA — comunicados oficiais",
+      "api": "rss",
+      "tipo": "comunicado",
+      "editoria": "espaco",
+      "ativa": false,
+      "consulta": "https://www.esa.int/rssfeed/Our_Activities/Space_Science",
+      "dias": 5,
+      "maximo": 15,
+      "observacao": "Imagens da ESA são CC BY-SA 3.0 IGO: exigem crédito e a mesma licença no que a gente publicar. Fica desligada até decidirmos se vale a obrigação."
+    }
+  ],
+  "peso": {
+    "recencia": 3,
+    "brasil": 2.5,
+    "tamanho_do_estudo": 1.5,
+    "tema_quente": 1.5,
+    "revisao_por_pares": 2
+  },
+  "palavras_brasil": [
+    "brazil",
+    "brazilian",
+    "amazon",
+    "amazonia",
+    "latin america",
+    "dengue",
+    "zika",
+    "chagas",
+    "cerrado",
+    "atlantic forest",
+    "são paulo"
+  ]
+}

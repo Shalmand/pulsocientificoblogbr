@@ -1,0 +1,33 @@
+/* Complementos do site real que o protótipo não precisava (o protótipo mostrava marcadores
+   no lugar dos anúncios de verdade). Tudo o mais está em pulso.css, sem alteração. */
+
+/* Espaço de anúncio já preenchido (banner interno ou AdSense) */
+[data-espaco] { display: flex; justify-content: center; }
+[data-espaco] > * { max-width: 100%; }
+.ad-lead-real .banner-interno img { max-height: 90px; width: auto; }
+@media (max-width: 740px) { .ad-lead-real .banner-interno img { max-height: 100px; } }
+
+/* Marcador do anúncio no meio do texto: vazio até o espaço carregar */
+.content [data-espaco-anuncio]:empty { display: none; }
+
+/* Número dos KPIs do painel usados como filtro */
+button.kpi { font: inherit; }
+
+/* Pular para o conteúdo (aparece só com o teclado) */
+.pular { position: absolute; left: 12px; top: -48px; z-index: 50; padding: 10px 14px; border-radius: var(--r-btn); background: var(--ink); color: var(--bg); font: 600 13px/1 var(--font-display); }
+.pular:focus { top: 12px; }
+
+/* Busca: campo dentro do cabeçalho da página, no mesmo desenho dos campos do site */
+.busca-form { display: flex; gap: 10px; max-width: 560px; margin: 16px 0 6px; }
+.busca-form .input { flex: 1; min-width: 0; }
+.busca-form .btn { height: 42px; }
+
+/* "Carregar mais" das listas */
+.carregar-mais { display: flex; justify-content: center; margin: 22px 0 6px; }
+.carregar-mais .btn-ghost { padding: 0 20px; }
+.carregar-mais small { color: var(--muted); margin-left: 4px; }
+
+/* Novidades de quem a pessoa segue: número no botão e no menu da conta */
+.conta-btn { position: relative; }
+.conta-aviso { position: absolute; top: -4px; left: 20px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--brand); color: #fff; font: 700 10.5px/18px var(--font-display); font-style: normal; text-align: center; box-shadow: 0 0 0 2px var(--bg); }
+.conta-menu-n { margin-left: auto; min-width: 20px; padding: 2px 6px; border-radius: 10px; background: var(--tint); color: var(--brand-strong); font: 700 11px/1.3 var(--font-display); text-align: center; }

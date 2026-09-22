@@ -1,0 +1,13 @@
+{
+  "name": "Pulso Científico",
+  "short_name": "Pulso",
+  "description": "Pesquisas recentes explicadas em português simples, com link para a fonte original.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0E9F6E",
+  "icons": [
+    { "src": "/marca/pulso-simbolo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
